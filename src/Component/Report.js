@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { Card, ButtonGroup, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, ButtonGroup, Button, Container, Row, Col, Spinner } from "react-bootstrap";
 import "./Report.module.css";
 
 
 
 const Report = ({ jsonData, apiToken, user }) => {
-
+    const [isLoading, setIsLoading] = useState(false);
     const fetchDataWithToken = async (url, token) => {
         console.log(token);
         try {
@@ -44,9 +44,10 @@ const Report = ({ jsonData, apiToken, user }) => {
     };
 
     const downloadReport = async () => {
+        setIsLoading(true);
         try {
             // Replace with your backend API endpoint that generates the Excel report
-            const response = await fetch('https://cyarabackend.onrender.com/cyara/generate-report', {
+            const response = await fetch('http://cyarabackend.onrender.com/cyara/generate-report', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json", // Set the Content-Type to JSON
@@ -70,6 +71,8 @@ const Report = ({ jsonData, apiToken, user }) => {
             link.remove();
         } catch (error) {
             console.error('Error downloading report:', error);
+        }finally {
+            setIsLoading(false); // Reset loading state once the API call is complete
         }
     };
 
@@ -154,9 +157,14 @@ const Report = ({ jsonData, apiToken, user }) => {
                                 variant="primary"
                                 className="d-flex align-items-center"
                                 onClick={downloadReport}
+                                disabled={isLoading} // Disable button while loading
                             >
-                                <i className="bi bi-download me-2"></i> {/* Bootstrap Icon for Download */}
-                                Download Report
+                                {isLoading ? (
+                                    <Spinner animation="border" size="sm" className="me-2" /> // Show spinner
+                                ) : (
+                                    <i className="bi bi-download me-2"></i> // Show download icon
+                                )}
+                                {isLoading ? 'Downloading...' : 'Download Report'}
                             </Button>
                         </Card.Body>
                     </Card>
@@ -319,7 +327,7 @@ const TaskStatusReport = () => {
     return (
         <div>
             {/* Render BarChart component with data */}
-            <Report jsonData={jsonData} apiToken={apiToken} user={user}/>
+            <Report jsonData={jsonData} apiToken={apiToken} user={user} />
         </div>
     );
 };
