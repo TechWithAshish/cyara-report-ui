@@ -46,7 +46,7 @@ const Report = ({ jsonData, apiToken, user }) => {
     const downloadReport = async () => {
         try {
             // Replace with your backend API endpoint that generates the Excel report
-            const response = await fetch('http://localhost:8080/cyara/generate-report', {
+            const response = await fetch('https://cyarabackend.onrender.com/cyara/generate-report', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json", // Set the Content-Type to JSON
