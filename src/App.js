@@ -7,6 +7,7 @@ import Home from './Component/Home';
 import TaskStatusReport from './Component/Report';
 import AboutUs from './Component/AboutUs';
 import Features from './Component/Features';
+import DemoReport from './Component/DemoReport';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/generate-report' element={<TaskStatusReport />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/feature' element={<Features />} />
+          <Route path='/demo-report' element={<DemoReport />} />
         </Routes>
       </BrowserRouter>
     </>

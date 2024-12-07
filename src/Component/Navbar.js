@@ -53,12 +53,21 @@ function CustomNavbar() {
                                     </Nav.Link>
                                     <Nav.Link
                                         as={Link}
+                                        to="/demo-report"
+                                        className="fw-bold"
+                                        onClick={handleCloseOffcanvas} // Close on click
+                                    >
+                                        SampleReport
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        as={Link}
                                         to="/report"
                                         className="fw-bold"
                                         onClick={handleCloseOffcanvas} // Close on click
                                     >
                                         Report
                                     </Nav.Link>
+
                                     <NavDropdown
                                         title="More"
                                         id={`offcanvasNavbarDropdown-expand-${expand}`}
