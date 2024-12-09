@@ -21,7 +21,7 @@ function CustomNavbar() {
 
     return (
         <>
-            {['xxl'].map((expand) => (
+            {['md'].map((expand) => (
                 <Navbar key={expand} expand={expand} className="bg-secondary" style={NavbarStyle}>
                     <Container fluid className="container-fluid p-1 ms-3 me-3">
                         <Navbar.Brand as={Link} to="/" className="fw-bold">CyaraTools</Navbar.Brand>
