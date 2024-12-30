@@ -197,35 +197,6 @@ const Report = ({ jsonData}) => {
 };
 
 
-// const jsonData = {
-//     "folderData": {
-//         "Success": [
-//             { id: 1, name: "Task A", description: "Completed successfully" },
-//             { id: 2, name: "Task B", description: "No issues found" },
-//         ],
-//         "Failed": [
-//             { id: 3, name: "Task C", description: "Error occurred" },
-//             { id: 4, name: "Task D", description: "Process halted" },
-//         ],
-//         "Satisfactory": [
-//             { id: 5, name: "Task E", description: "Met expectations" },
-//             { id: 6, name: "Task F", description: "Adequate results" },
-//         ],
-//         "Aborted": [
-//             { id: 7, name: "Task G", description: "Canceled by user" },
-//             { id: 8, name: "Task H", description: "Operation timed out" },
-//         ],
-//         "Not Run": [
-//             { id: 9, name: "Task I", description: "Skipped due to conditions" },
-//             { id: 10, name: "Task J", description: "Not executed by user choice" },
-//         ]
-//     },
-//     "success" : 20,
-//     "failed" : 10,
-//     "satisfactory" : 15,
-//     "Aborted" : 12,
-//     "Not Run" : 11
-// }
 const data = {
     "folderData": {
         "Satisfactory": [
